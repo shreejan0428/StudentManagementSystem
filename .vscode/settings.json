@@ -1,0 +1,32 @@
+{
+
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    
+    ],
+
+    // Disable all quick suggestions while typing
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+
+    // Disable parameter hints (like function parameter info)
+    "editor.parameterHints.enabled": false,
+
+    // Disable inline suggestions
+    "editor.inlineSuggest.enabled": false,
+
+    // Disable suggestion on trigger characters (like '.' or '(')
+    "editor.suggestOnTriggerCharacters": false,
+
+    // Disable word-based suggestions
+    "editor.wordBasedSuggestions": "off",
+
+    // Optional: Disable suggestion previews while typing
+    "editor.suggest.preview": false
+}
+
