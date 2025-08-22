@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Scanner;
 
 public class Main{
@@ -25,16 +25,29 @@ public class Main{
        
         // Menu
         do {
-            System.out.println("Choose an option from the menu below:");
-            System.out.println("1. Add Student");
-            System.out.println("2. View all Students");
-            System.out.println("3. Search Student by ID");
-            System.out.println("4. Update Student Grade");
-            System.out.println("5. Delete Student by ID");
-            System.out.println("6. Exit the program");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-            
+            try{
+                System.out.println("Choose an option from the menu below:");
+                System.out.println("1. Add Student");
+                System.out.println("2. View all Students");
+                System.out.println("3. Search Student by ID");
+                System.out.println("4. Update Student Grade");
+                System.out.println("5. Delete Student by ID");
+                System.out.println("6. Exit the program");
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+                if (choice < 1 || choice > 6)
+                    throw new InvalidMenuChoiceException("Menu options are only from 1-6");
+            }
+            catch(InputMismatchException e) {
+                System.out.println("Invalid input. Input must be an integer.");
+                scanner.nextLine();
+                choice = 0;
+            }
+            catch(InvalidMenuChoiceException e) {
+                System.out.println("Invalid Menu choice. " + e.getMessage());
+            }
+
             if (choice == 1) {
                 addStudents(school, scanner);
             }
@@ -119,8 +132,14 @@ public class Main{
         {
             if(list.get(i).getID().equals(ID)) {
                 list.remove(i);
-                System.out.println("You have successfully removed " + list.get(i).getName() + " from the system.");
+                System.out.println("You have successfully removed the student from the system.");
             }
         }
+    }
+}
+
+class InvalidMenuChoiceException extends Exception{
+    public InvalidMenuChoiceException(String message){
+        super(message);
     }
 }
