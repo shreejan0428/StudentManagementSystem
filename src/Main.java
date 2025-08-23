@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
@@ -11,13 +10,11 @@ public class Main{
         Student student1 = new Student("Shreejan", "sxr220177", 20, 2.67); 
         Student student2 = new Student("Joseph", "jwr990191", 19, 3.5);
         Student student3 = new Student("Cameron", "cwr220345", 20, 2.12);
-        Student student4 = new Student();
 
         // Add the students to the arraylist
         school.add(student1);
         school.add(student2);
         school.add(student3);
-        school.add(0, student4);
 
         int choice = 0;
         Scanner scanner = new Scanner(System.in);
@@ -79,62 +76,98 @@ public class Main{
                 String name, ID;
                 int age;
                 double grade;
+                try {
                 System.out.println("What is the student's name?");
                 name = scanner.nextLine();
                 System.out.println("What is the student's ID?");
                 ID = scanner.nextLine();
                 System.out.println("What is the student's age?");
                 age = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("What is the student's grade?");
                 grade = scanner.nextDouble();
-
+                scanner.nextLine();
                 Student student = new Student(name, ID, age, grade);
                 list.add(student);
                 System.out.println("You have successfully added " + name);
+                }
+                catch(InputMismatchException e) {
+                    System.out.println("Invalid entry.");
+                }
             }
             else if (input.equals("unknown")) {
                 Student student = new Student();
                 list.add(student);
                 System.out.println("You have successfully added a student");
             }
+            else {
+                System.out.println("Invalid option. 'unknown' or 'provide' are the only options accepted.");
+            }
         }
 
     public static void searchStudents(ArrayList<Student> list, Scanner scanner) {
         System.out.println("What is the student's ID?");
         String ID = scanner.nextLine();
+        boolean validID = false;
         for (int i = 0; i < list.size(); i++)
         {
             if(list.get(i).getID().equals(ID)) {
                 ID = list.get(i).getID();
                 list.get(i).printInfo();
+                validID = true;
             }
+
         }
+        if (!validID) {
+            System.out.println("You have entered an invalid ID");
+        }
+
+        
     }
 
     public static void updateGrade(ArrayList<Student> list, Scanner scanner) {
         System.out.println("Enter the student ID of the student whose grade you want to update.");
         String ID = scanner.nextLine();
+        boolean validID = false;
         for (int i = 0; i < list.size(); i++)
         {
             if(list.get(i).getID().equals(ID)) {
                 ID = list.get(i).getID();
                 System.out.println("Enter " + list.get(i).getName() + "'s new grade.");
+                try {
                 double newGrade = scanner.nextDouble();
+                scanner.nextLine();
                 list.get(i).setGrade(newGrade);
+                }
+                catch(InputMismatchException e) {
+                    System.out.println("Invalid entry. You must enter a double value.");
+                }
+                validID = true;
             }
         }
+
+        if (!validID) {
+            System.out.println("You have entered an invalid ID");
+        }
+
     }
 
     public static void deleteStudent(ArrayList<Student> list, Scanner scanner) {
         System.out.println("Enter the student ID of the student that you want to delete from the system.");
         String ID = scanner.nextLine();
+        boolean validID = false;
         for (int i = 0; i < list.size(); i++)
         {
             if(list.get(i).getID().equals(ID)) {
                 list.remove(i);
                 System.out.println("You have successfully removed the student from the system.");
+                validID = true;
             }
         }
+        if (!validID) {
+            System.out.println("You have entered an invalid ID");
+        }
+
     }
 }
 

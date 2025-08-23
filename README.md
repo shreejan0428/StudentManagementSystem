@@ -1,18 +1,4 @@
-## Getting Started
+The user is promoted with a menu containing 6 options, add, search, view, update, delete, exit the program. 
+These functions pertain to the students of a school, students being the object stored in an array list school. The console prompts and information gathered so far is very simple just to hone my basic skills and I will make it better as I grow as a programmer. This project is almost a baseline project for me to hone the basics and add on to it as I get more skills.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+I created this project to hone my OOP skills, practice exception handling, and be able to learn new techniques and add to the project. It started out as a console based system which I then remodeled with UI after learning Java Fx.

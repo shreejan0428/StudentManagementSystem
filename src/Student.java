@@ -58,7 +58,6 @@ public class Student {
 
     @Override 
     public String toString() {
-        return "ID: " + ID + " Name: " + name + " Age: " + age + " Grade: " + grade;
+        return "Name: " + name + " ID: " + ID + " Age: " + age + " Grade: " + grade;
     }
-
 }
